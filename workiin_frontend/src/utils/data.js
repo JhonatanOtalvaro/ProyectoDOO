@@ -1,5 +1,7 @@
 //query para obtener el usuario
 
-export const userQuery = (userID) =>{
+export const userQuery = (userId) =>{
     const query = `*[_type == "user" && _id == '${userId}']`;
+
+    return query;
 }
