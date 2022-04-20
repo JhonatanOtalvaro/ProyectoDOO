@@ -3,6 +3,9 @@ import { HiMenu } from 'react-icons/ai';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { Link, Route, Routes } from 'react-router-dom';
 
+import {Sidebar, UserProfile} from '../components';
+
+
 
 const Home = () => {
   return (
