@@ -6,8 +6,11 @@ import { FcGoogle } from 'react-icons/fc';
 import ucc from '../assets/ucc_bg.png';
 import logo from '../assets/react-logo.png';
 
+import { client } from '../client';
+
 const Login = () => {
 
+    const navigate = useNavigate();
     const responseGoogle=(response) => {
         localStorage.setItem('user', JSON.stringify(response.profileObj));
         const {name, googleId, imageUrl} = response.profileObj;
@@ -18,6 +21,12 @@ const Login = () => {
             userName: name,
             image: imageUrl,
         }
+
+        client.createIfNotExists(doc)
+        .then(()=>{
+            navigate('/', {replace: true})
+        })
+
     }
 
   return (
