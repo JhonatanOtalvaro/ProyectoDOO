@@ -3,7 +3,7 @@ import React from 'react'
 const Pins = () => {
   return (
     <div>
-        Pins
+        Aquí vamos a ver lo que suben los usuarios
     </div>
   )
 }
