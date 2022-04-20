@@ -7,7 +7,7 @@ import {Sidebar, UserProfile} from '../components';
 import Pins from './Pins';
 import { userQuery } from '../utils/data';
 import { client } from '../client';
-import logo from '../assets/react-logo.png';
+import UCClogo from '../assets/UCC-logo-negro.png';
 
 
 
@@ -40,14 +40,13 @@ const Home = () => {
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
           <HiMenu fontSize={40} className="cursor-pointer" onClick={()=> setToggleSidebar(true)}/>
           <Link to="/">
-            <img src={logo} alt="logo" className="w-28"/>
+            <img src={UCClogo} alt="logo" className="w-30"/>
           </Link>
           <Link to={`user-profile/${user?._id}`}>
-            <img src={user?.image} alt="logo" className="w-28"/>
+            <img src={user?.image} alt="user-pic" className="w-28"/>
           </Link>
         </div>
-      </div>
-      {toggleSidebar && (
+        {toggleSidebar && (
         <div className="fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
           <div className="absolute w-full flex justify-end items-center p-2">
             <AiFillCloseCircle fontSize={30} className="cursor-pointer" onClick={()=> setToggleSidebar(false)}/>
@@ -55,6 +54,7 @@ const Home = () => {
           <Sidebar user={user && user} closeToggle={setToggleSidebar} />
         </div>
       )}
+      </div>      
       <div className="pb-2 flex-1 h-screen overflow-y-scroll" ref={scrollRef}>
         <Routes>
           <Route path="/user-profile/:userId" element={<UserProfile />} />
