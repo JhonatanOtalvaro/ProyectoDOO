@@ -5,11 +5,14 @@ import { IoIosArrowForward } from 'react-icons/io';
 
 import logo from '../assets/UCC-logo-blanco.png';
 
-const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out '
-const isActiveStyle = 'flex items-center px-5 gap-3 font-extrab border-r-2 border-black transition-all duration-200 ease-in-out '
+const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';
+const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black transition-all duration-200 ease-in-out '
 
 const categories = [
-  {  name: 'IinEmpleadores'  },{  name: 'IinEmpleados' },{ name: 'IinComentearios' },{ name: 'IinTrabajaConNosotros' }
+  {  name: 'IinEmpleadores'  },
+  {  name: 'IinEmpleados' },
+  { name: 'IinComentearios' },
+  { name: 'IinTrabajaConNosotros' }
 ]
 
 const Sidebar = ({ user, closeToggle  }) => {
@@ -40,7 +43,7 @@ const Sidebar = ({ user, closeToggle  }) => {
             <h3 className="mt-2 px-5 text-base 2xl:text-xl">
               Tiipos de usuariios
             </h3>
-            {categories.slice(0, categories.length).map((category) => (
+            {categories.slice(0, categories.length - 1).map((category) => (
               <NavLink 
               to={`/category/${category.name}`}
               className={({isActive}) => isActive ? isActiveStyle : isNotActiveStyle}
@@ -58,7 +61,7 @@ const Sidebar = ({ user, closeToggle  }) => {
             className="flex my-5 mb-3 gap-2 p-2 itmes-center bg-white rounded-lg shadow-lg mx-3"
             onClick={handleCloseSidebar}
           >
-            <img src={user.image} alt="imagen" className="w-10 h-10 rounded-full" />
+            <img src={user.image} className="w-10 h-10 rounded-full" alt="imagen"/>
             <p>{user.userName}</p>
           </Link>
         )}
